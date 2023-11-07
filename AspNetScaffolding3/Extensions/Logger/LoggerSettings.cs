@@ -1,9 +1,9 @@
-﻿using Serilog.Builder.Models;
-using System;
+﻿using System;
 using System.Linq;
 using AspNetSerilog;
+using Serilog.Builder.Models;
 
-namespace AspNetScaffolding.Extensions.Logger
+namespace AspNetScaffolding3.Extensions.Logger
 {
     public class LoggerSettings
     {
@@ -48,6 +48,8 @@ namespace AspNetScaffolding.Extensions.Logger
         public NewRelicOptions NewRelicOptions { get; set; } = new NewRelicOptions();
 
         public DataDogOptions DataDogOptions { get; set; } = new DataDogOptions();
+        
+        public ConsoleOptions ConsoleOptions { get; set; } = new ConsoleOptions();
         
         public string GetInformationTitle()
         {

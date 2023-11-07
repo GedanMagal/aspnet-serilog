@@ -1,4 +1,8 @@
-﻿using AspNetScaffolding.Extensions.AccountId;
+﻿using System;
+using System.Collections.Generic;
+using AspNetScaffolding;
+using AspNetScaffolding.Extensions.AccountId;
+using AspNetScaffolding.Extensions.Logger;
 using AspNetScaffolding.Extensions.RequestKey;
 using AspNetScaffolding.Extensions.TimeElapsed;
 using AspNetScaffolding.Utilities;
@@ -6,10 +10,8 @@ using AspNetSerilog;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Builder;
-using System;
-using System.Collections.Generic;
 
-namespace AspNetScaffolding.Extensions.Logger
+namespace AspNetScaffolding3.Extensions.Logger
 {
     public static class LoggerServiceExtension
     {
@@ -33,7 +35,9 @@ namespace AspNetScaffolding.Extensions.Logger
                 .SetupSplunk(settings?.SplunkOptions)
                 .SetupNewRelic(settings?.NewRelicOptions)
                 .SetupDataDog(settings?.DataDogOptions)
-                .BuildLogger();
+                .BuildConfiguration()
+                .EnableStdOutput(settings?.ConsoleOptions)
+                .CreateLogger();
 
             if (settings?.DebugEnabled ?? false)
             {

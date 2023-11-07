@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
+using AspNetScaffolding3.Extensions.Logger;
 using AspNetScaffolding3.Extensions.RequestLimit;
 
 namespace AspNetScaffolding
